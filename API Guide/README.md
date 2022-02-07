@@ -93,3 +93,13 @@
 ```Host: en.wikipedia.org```: The domain name of the server (for virtual hosting), and the TCP port number on which - the server is listening.
 - ```From: user@example.com```: The email address of the user making the request.
 - ```Origin: http://www.example-social-network.com```: Initiates a request for cross-origin resource sharing
+
+## Difference between PUT and POST.
+PUT | POST |
+--- | --- |
+Calling the same PUT request multiple times will always produce the same result. | If you send the same POST request multiple times, you will receive different results.  |
+PUT method is called when you have to modify a single resource. | while POST method is called when you have to add a child resource. |
+PUT method response can be cached. | But you cannot cache POST method responses.|
+In PUT method, the client decides which URI resource should have. |While in POST method, the server decides which URI resource should have. |
+PUT method is idempotent. | Whereas POST method is not idempotent. |
+PUT works as specific. | POST work as abstract. |

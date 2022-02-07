@@ -68,3 +68,28 @@
     Content-Length: 0
     ```
   - OPTIONS Identifying which HTTP methods a resource supports, e.g. can we DELETE it or update it via a PUT?
+
+## What are API Headers?
+- API headers are like an extra source of information for each API call you make.
+- Their job is to represent the meta-data associated with an API request and response.
+- If you ever encounter issues with an API, the first place you should look is the headers, since they can help you track down any potential issues.
+- API Headers tell you about:
+  - Request and Response Body
+  - Request Authorization
+  - Response Caching
+  - Response Cookies
+
+## List of HTTP header fields:
+- ```Accept: text/html```: Media type(s) that is/are acceptable for the response.
+- ```Accept-Charset: utf-8```: Character sets that are acceptable.
+- ```Accept-Datetime: Thu, 31 May 2007 20:35:00 GMT```: Acceptable version in time.
+- ```Accept-Encoding: gzip, deflate```: List of acceptable encodings.
+- ```Accept-Language: en-US```: List of acceptable human languages for response.
+```Access-Control-Request-Method: GET, Access-Control-Request-Headers```: Initiates a request for cross-origin - resource sharing with Origin
+- ```Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==```: Authentication credentials for HTTP authentication.
+```Connection: keep-alive, Connection: Upgrade```: Control options for the current connection and list of hop-by-hop - request fields.
+- ```Content-Length: 348```: The length of the request body in octets (8-bit bytes).
+- ```Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==```: A Base64-encoded binary MD5 sum of the content of the request body.
+```Host: en.wikipedia.org```: The domain name of the server (for virtual hosting), and the TCP port number on which - the server is listening.
+- ```From: user@example.com```: The email address of the user making the request.
+- ```Origin: http://www.example-social-network.com```: Initiates a request for cross-origin resource sharing

@@ -103,3 +103,50 @@ PUT method response can be cached. | But you cannot cache POST method responses.
 In PUT method, the client decides which URI resource should have. |While in POST method, the server decides which URI resource should have. |
 PUT method is idempotent. | Whereas POST method is not idempotent. |
 PUT works as specific. | POST work as abstract. |
+
+## Query Parameters:
+- API Query parameters can be defined as the optional key-value pairs that appear after the question mark in the URL.
+- Basically, they are extensions of the URL that are utilized to help determine specific content or action based on the data being delivered.
+- Query parameters are appended to the end of the URL, using a ‘?’. The question mark sign is used to separate path and query parameters.
+- If you want to add multiple query parameters, an ‘&’ sign is placed in between them to form what is known as a query string.
+- Example:
+  ```
+  https://example.com/articles?sort=ASC&page=2
+  ```
+  In this URL, there are two query parameters, sort, and page, with ASC and 2 being their values, respectively.
+- **Control the set of items returned:**
+  - **limit:**<br />
+    To prevent the response from becoming too large, the number of items returned is limited by default to 250. You can override this value by using the limit query parameter to specify a different number. 
+    ```
+    GET /ccadmin/v1/orders?limit=5
+    ```
+  - **offset:**<br />
+    To page through the results, you can use the offset parameter. For example, suppose you have returned the first group of 250 orders using this call
+    ```
+    GET /ccadmin/v1/orders?offset=250
+    ```
+    The default value of offset is 0
+- **Control the order of items returned:**
+  - **sort:**<br />
+    You can use the sort parameter to specify a different property to sort by. For example:
+    ```
+    GET /ccadmin/v1/products?sort=id
+    ```
+    You can append :asc or :desc to the property name to specify sorting in ascending or descending order. For example, to sort by id descending:
+    ```
+    GET /ccadmin/v1/products?sort=id:desc
+    ```
+    You can specify multiple properties for sorting.
+    ```url
+    GET /ccadmin/v1/products?sort=listPrice,displayName
+    ```
+- **Filter results:** <br />
+  For example, the following call returns only those products whose orderLimit property has a value of less than 10:
+  ```
+  GET /ccadmin/v1/products?q=orderLimit lt 10
+  ```
+- **Use SCIM expressions for filtering:**<br />
+  For example, the following call returns products whose description property starts with pa:
+  ```
+  GET /ccadmin/v1/products?q=description sw "pa"
+  ```
